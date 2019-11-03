@@ -20,6 +20,6 @@ public class RekenGemiddelde extends Applet {
     }
 
     public void paint(Graphics g) {
-        g.drawString("antwoord is: " + uitkomst, 20, 20);
+        g.drawString("Gemiddelde is: " + uitkomst, 20, 20);
     }
 }

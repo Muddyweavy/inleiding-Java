@@ -10,9 +10,9 @@ public class Reken extends Applet {
     int uitkomst;
 
     public void init() {
-        a = 113;
-        b = 4;
-        uitkomst = a / b;
+        a = 100;
+        b = 2;
+        uitkomst = a * b;
     }
 
     public void paint(Graphics g) {
