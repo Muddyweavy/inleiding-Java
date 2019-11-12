@@ -12,19 +12,20 @@ public class Rekenmachine extends Applet{
     Button knop3;
     Button knop4;
 
+    //Rekencijfers
+    double getal1;
+    double getal2;
+    double uitkomst;
     //textfields
     TextField tekstvak1;
     TextField tekstvak2;
-    TextField tekstvak3;
-    TextField tekstvak4;
+
 
     public void init() {
 
         //Toevoegen
-        tekstvak1 = new TextField("+", 40);
-        tekstvak2 = new TextField("-", 40);
-        tekstvak3 = new TextField("*", 40);
-        tekstvak4 = new TextField("/", 40);
+        tekstvak1 = new TextField("", 10);
+        tekstvak2 = new TextField("", 10);
         knop1 = new Button("+");
         knop1.addActionListener( new Knop1Listener() );
         knop2 = new Button("-");
@@ -35,41 +36,64 @@ public class Rekenmachine extends Applet{
         knop4.addActionListener( new Knop4Listener() );
 
         //visuals
+        add(tekstvak1);
+        add(tekstvak2);
         add(knop1);
         add(knop2);
         add(knop3);
         add(knop4);
 
-        //tellers
 
 
     }
 
     public void paint(Graphics g) {
-
+        g.drawString("antwoord: " + uitkomst, 20, 50);
     }
 
     class Knop1Listener implements ActionListener {
-
         public void actionPerformed( ActionEvent e ) {
+            String userInput1 = tekstvak1.getText();
+            getal1 = Double.parseDouble(userInput1);
+            String userInput2 = tekstvak2.getText();
+            getal2 = Double.parseDouble(userInput2);
+            uitkomst = getal1 + getal2;
             repaint();
         }
     }
 
     class Knop2Listener implements ActionListener {
         public void actionPerformed( ActionEvent e) {
+            String userInput1 = tekstvak1.getText();
+            getal1 = Double.parseDouble(userInput1);
+            String userInput2 = tekstvak2.getText();
+            getal2 = Double.parseDouble(userInput2);
+            uitkomst = getal1 - getal2;
+            repaint();
             repaint();
         }
     }
 
     class Knop3Listener implements ActionListener {
         public void actionPerformed( ActionEvent e) {
+            String userInput1 = tekstvak1.getText();
+            getal1 = Double.parseDouble(userInput1);
+            String userInput2 = tekstvak2.getText();
+            getal2 = Double.parseDouble(userInput2);
+            uitkomst = getal1 * getal2;
+            repaint();
             repaint();
         }
     }
 
     class Knop4Listener implements ActionListener {
         public void actionPerformed( ActionEvent e) {
+            String userInput1 = tekstvak1.getText();
+            getal1 = Double.parseDouble(userInput1);
+            String userInput2 = tekstvak2.getText();
+            getal2 = Double.parseDouble(userInput2);
+            uitkomst = getal1 / getal2;
+            repaint();
             repaint();
         }
     }
