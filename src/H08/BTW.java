@@ -28,7 +28,7 @@ public class BTW extends Applet {
         knop1.addActionListener(new Knop1Listener());
 
         //rekenmachine
-        uitkomst = prijs / 100 * 21;
+
 
 
     }
@@ -44,7 +44,7 @@ public class BTW extends Applet {
         public void actionPerformed(ActionEvent e) {
             String userInput = tekstvak.getText();
             prijs = Double.parseDouble(userInput);
-            userInput = (prijs + " +21% btw " + uitkomst);
+            uitkomst = prijs / 100 * 21 + prijs;
             repaint();
         }
 
