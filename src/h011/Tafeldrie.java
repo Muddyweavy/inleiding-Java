@@ -6,18 +6,19 @@ import java.applet.*;
 
 public class Tafeldrie extends Applet {
 
+
     public void init() {}
 
-    int teller = 1;
-    int y = 0;
-    int uitkomst = 3 * teller;
-
     public void paint(Graphics g) {
+        int teller = 3;
+        int y = 0;
 
-        while(teller < 11) {
+        while(teller < 31) {
             y += 20;
-            g.drawString(": ", 20, 10);
-            g.drawString(""  + uitkomst, 30, y );
+            g.drawString("",20,20);
+            g.drawString("" + teller, 30, y );
+            teller++;
+            teller++;
             teller++;
         }
     }
