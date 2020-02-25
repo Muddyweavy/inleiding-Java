@@ -6,69 +6,56 @@ import java.awt.event.*;
 
 
 public class Schikkeljaar extends Applet {
-    TextField tekstvak;
+
+    TextField tekstvakmaand;
+    TextField tekstvakjaar;
     Label label;
-    String s, tekst;
+    string aantaldagen;
     int cijfer;
 
     public void init() {
-        tekstvak = new TextField("", 20);
-        label = new Label("Type het cijfer en druk op enter");
-        tekstvak.addActionListener(new TekstvakListener());
+        tekstvakmaand = new TextField("", 20);
+        tekstvakjaar = new TextField("", 20);
+        label = new Label("Vul een maandnummer en jaar in en druk op enter");
+        tekstvakjaar.addActionListener(new TekstvakListener());
         tekst = "";
         add(label);
-        add(tekstvak);
+        add(tekstvakmaand);
+        add(tekstvakjaar);
     }
 
     public void paint(Graphics g) {
-        g.drawString(tekst, 50, 60);
+        g.drawString(aantaldagen, 50, 60);
     }
 
     class TekstvakListener implements ActionListener {
+
         public void actionPerformed(ActionEvent e) {
-            s = tekstvak.getText();
+            int maand = Integer.parseInt(tekstvakmaand.getText());
+            int jaartal = Integer.parseInt(tekstvakjaar.getText());
+
+            s = tekstvakmaand.getText();
             cijfer = Integer.parseInt(s);
             switch (cijfer) {
                 case 1:
-                    tekst = "Januari 31";
-                    break;
-                case 2:
-                    tekst = "Februari 28";
-                    break;
                 case 3:
-                    tekst = "Maart 31";
-                    break;
-                case 4:
-                    tekst = "April 30";
-                    break;
                 case 5:
-                    tekst = "Mei 31";
-                    break;
-                case 6:
-                    tekst = "Juni 30";
-                    break;
                 case 7:
-                    tekst = "juli 31";
-                    break;
-                case 8:
-                    tekst = "augustus 31";
-                    break;
-                case 9:
-                    tekst = "september 30";
-                    break;
                 case 10:
-                    tekst = "spooktober 31";
-                    break;
-                case 11:
-                    tekst = "november 30";
-                    break;
                 case 12:
-                    tekst = "december 31";
-                    break;
-                default:
-                    tekst = "Kies een cijfer tussen 1 en 12";
-                    break;
-            }
+                    aantaldagen = 31; break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    aantaldagen = 30; break;
+                case 2:
+                    if ( (jaartal % 4 == 0 && !(jaartal % 100 == 0)) || jaartal % 400 == 0 ) {
+                        aantaldagen = 28;
+                    } else {
+                        aantaldagen = 29;
+                    } break;
+                }
             repaint();
         }
     }
