@@ -27,17 +27,11 @@ public class BTW extends Applet {
         // Listener
         knop1.addActionListener(new Knop1Listener());
 
-        //rekenmachine
-
-
 
     }
 
     public void paint(Graphics g) {
         g.drawString(prijs + "+ 21% btw =" + uitkomst, 20, 50);
-
-
-
     }
 
     class Knop1Listener implements ActionListener {
@@ -47,7 +41,5 @@ public class BTW extends Applet {
             uitkomst = prijs / 100 * 21 + prijs;
             repaint();
         }
-
     }
-
 }
