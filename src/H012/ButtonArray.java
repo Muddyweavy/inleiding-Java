@@ -3,7 +3,7 @@ package H012;
 import java.awt.*;
 import java.applet.*;
 
-public class Array extends Applet {
+public class ButtonArray extends Applet {
     double[] array;
 
     public void init() {
@@ -23,5 +23,5 @@ public class Array extends Applet {
     public void paint(Graphics g) {
         for (int teller = 0; teller < array.length; teller ++)
             g.drawString("" + array[teller], 50, 20 * teller + 20);
-        }
     }
+}
